@@ -1,0 +1,42 @@
+name: Supabase CI
+
+on:
+  push:
+    branches: [main, "claude/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  secret-scan:
+    name: Sır taraması (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  db-validate:
+    name: Migration doğrulama (db lint + start)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Supabase CLI kur
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Yerel stack başlat (migration'ları uygular)
+        run: supabase start
+
+      - name: DB lint
+        run: supabase db lint --level warning
+
+      - name: Stack durdur
+        if: always()
+        run: supabase stop --no-backup

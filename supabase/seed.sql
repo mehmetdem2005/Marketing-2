@@ -1,0 +1,11 @@
+-- ============================================================================
+-- Köyden — seed verisi (yerel geliştirme / demo)
+-- Faz 0: kimlik tabanı kuruldu. Kategori taksonomisi (15 kök kategori) ve
+-- demo mağaza/ürün verisi, ilgili tablolar eklendiğinde (Faz 3) buraya gelecek.
+-- ============================================================================
+
+-- (Faz 3) Kategori ağacı örneği:
+-- insert into public.categories (slug, name, parent_id) values
+--   ('kuruyemis-kuru-meyve', 'Kuruyemiş & Kuru Meyve', null),
+--   ('cay-bitki-cayi-kahve', 'Çay, Bitki Çayı & Kahve', null),
+--   ... ;

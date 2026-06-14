@@ -1,0 +1,5 @@
+# Edge Functions (Deno/TS) — Faz 5'te eklenecek:
+#   stripe-checkout/  (yönlendirme; tahsilat kapalı — ADR-007)
+#   stripe-webhook/   (placeholder)
+#   order-notify/     (sipariş bildirimi)
+# Sırlar (service-role, Stripe secret) yalnız `supabase secrets set ...` ile env'de tutulur.

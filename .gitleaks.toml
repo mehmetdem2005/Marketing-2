@@ -1,0 +1,14 @@
+title = "Koyden (backend) gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Yanlış-pozitif önleme"
+paths = [
+  '''.*\.example$''',
+]
+regexes = [
+  '''YOUR_SERVICE_ROLE_KEY''',
+  '''YOUR_STRIPE_SECRET''',
+]

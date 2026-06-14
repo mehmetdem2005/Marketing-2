@@ -1,0 +1,38 @@
+# Köyden Supabase yapılandırması (CLI).
+# Sırlar burada DEĞİL — yerel/CI ortam değişkenleri ve `supabase secrets` ile yönetilir.
+
+project_id = "koyden"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 15
+
+[studio]
+enabled = true
+port = 54323
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+# E-posta/şifre + (sonraki faz) OTP. JWT süresi varsayılan.
+enable_signup = true
+
+[auth.email]
+enable_signup = true
+enable_confirmations = false
+
+[storage]
+enabled = true
+# Bucket'lar (product-images, store-logos, avatars) ve politikaları Faz 3'te eklenecek.
+
+[edge_runtime]
+enabled = true
+# Edge Functions (stripe-checkout, order-notify) Faz 5'te eklenecek.

@@ -1,0 +1,13 @@
+# Supabase
+supabase/.branches/
+supabase/.temp/
+.supabase/
+
+# Sırlar — repoda ASLA
+.env
+.env.*
+*.key
+
+# IDE / OS
+.idea/
+.DS_Store
